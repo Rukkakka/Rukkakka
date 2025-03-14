@@ -13,11 +13,6 @@
 <img src="https://img.shields.io/badge/Selenium-007396?style=flat-square&logo=Selenium&logoColor=white" style="height : auto; margin-left : 10px; margin-right : 10px;"/></a>&nbsp;
 <div>
 
-<h3>🛠더 공부하고 싶은 언어</h3>
-<div>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white" style="height : auto; margin-left : 10px; margin-right : 10px;"/></a>&nbsp;
-</div>
-
 <h3>🛠블로그</h3>
 <div>
 https://velog.io/@lcs3947
