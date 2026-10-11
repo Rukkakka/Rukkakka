@@ -42,19 +42,32 @@ class JungHoo:
 <a href="https://github.com/Rukkakka/jibsa"><img src="assets/card-jibsa.svg" width="49%" alt="jibsa · 집사" /></a>&nbsp;<a href="https://github.com/Rukkakka/baenggipyo"><img src="assets/card-baenggipyo.svg" width="49%" alt="baenggipyo · 뱅기표" /></a>
 
 <pre>
-<a href="https://github.com/Rukkakka/lib"><b>lib/</b></a>   ClickHouse·Trino·Grafana·Slack 클라이언트 래퍼
-
-# jibsa 와 baenggipyo 는 LLM 에이전트가 쓰라고 만든 형제 CLI 입니다
+# jibsa 와 baenggipyo 는 LLM 에이전트가 쓰라고 만든 CLI 입니다
 #  - 웹 검색에 걸린 지난 정보 말고, 지금 거래 가능한 것만 가져옵니다
 #  - 로그인 없이 볼 수 있는 정보만 쓰고, 사이트별 요청 제한을 지킵니다
 #  - 결과는 공통 JSON 으로 돌려주고, 예약·문의는 결과의 url 로 넘깁니다
 </pre>
 
 <details open>
-<summary><code>$ jibsa</code> &nbsp;# 직방·네이버·당근을 조건 바꿔 가며 조회 (예시 데이터)</summary>
+<summary><code>$ claude</code> &nbsp;# Claude Code 가 집사로 집을 찾는 모습 (예시 화면)</summary>
 <br/>
 <img src="assets/jibsa-demo.gif" width="90%" />
 </details>
+
+<br/>
+
+### `$ ls ~/libs`
+
+<pre>
+<a href="https://github.com/Rukkakka/lib"><b>lib/</b></a>   데이터·모니터링·업무 시스템 클라이언트 래퍼 모음
+
+#  - DB: ClickHouse (동기·비동기), Trino
+#  - 모니터링: Grafana, Prometheus
+#  - 업무·외부: Slack, Jira, Microsoft Graph, Google Drive·Sheets, 공공데이터포털
+#  - 연결 설정은 pydantic 모델로 먼저 검증합니다
+#  - 클라이언트는 처음 쓸 때 만들고, with 블록이 끝나면 알아서 닫습니다
+#  - HTTP API 는 5xx·429·타임아웃이면 자동으로 다시 시도하고, async 버전도 있습니다
+</pre>
 
 <br/>
 
