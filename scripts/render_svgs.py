@@ -81,7 +81,7 @@ def hero(releases):
     )
 
     boot = [
-        ("OK", "Started data-pipeline.service", "# 천만 건 배치 · 실패 단계부터 재실행"),
+        ("OK", "Started data-pipeline.service", "# Airflow · 대규모 배치 · 장애 복구"),
         ("OK", "Started automation.service", "# UiPath RPA → Python"),
     ]
     for repo, _, _, comment, _ in PROJECTS:
