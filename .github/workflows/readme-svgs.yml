@@ -1,0 +1,43 @@
+# 집사·뱅기표의 최신 GitHub Release 를 읽어 README 의 히어로 배너와 프로젝트 카드 SVG 를 다시 그린다.
+# 바뀐 게 있을 때만 커밋한다. 바로 반영하고 싶으면 Actions 탭에서 "Run workflow" 를 누른다.
+name: README SVG 갱신
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/render_svgs.py
+      - .github/workflows/readme-svgs.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: readme-svgs
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: SVG 다시 그리기
+        run: python3 scripts/render_svgs.py assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 바뀐 SVG 커밋
+        run: |
+          if git diff --quiet -- assets; then
+            echo "변경 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/*.svg
+          git commit -m "README 프로젝트 버전 갱신"
+          git push
