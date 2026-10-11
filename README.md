@@ -10,9 +10,10 @@ class JungHoo:
     also = "Automation Engineer"  # UiPath RPA → Python
 
     stack = {
-        "data":  ["Airflow", "MySQL", "Hive", "Kafka", "Trino", "ClickHouse"],
-        "infra": ["Docker", "Kubernetes", "MLflow", "Grafana", "Prometheus"],
-        "auto":  ["UiPath", "Slack API", "Flask", "Streamlit", "Puppeteer"],
+        "data":    ["Airflow", "MySQL", "Hive", "Kafka", "Trino", "ClickHouse"],
+        "infra":   ["Docker", "Kubernetes", "CircleCI", "MLflow"],
+        "monitor": ["Grafana", "Prometheus"],
+        "auto":    ["UiPath", "Slack API", "Flask", "Streamlit", "Puppeteer"],
     }
 
     def work(self):
@@ -21,7 +22,7 @@ class JungHoo:
             "recovery":   "체크포인트·재시도로 실패한 단계부터 복구",
             "sdk":        "사내 DB·모니터링·업무 시스템용 Python SDK",
             "automation": "금융·회계·인사 업무 자동화, RPA → Python 전환",
-            "ci_cd":      "테스트·빌드·배포 자동화, Kubernetes 운영",
+            "ci_cd":      "CircleCI 로 테스트·빌드·배포 자동화, K8s 운영",
         }
 
     def side(self):
@@ -30,7 +31,7 @@ class JungHoo:
 ```
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=py,mysql,kafka,docker,kubernetes,grafana,prometheus,flask,js,git&theme=light" />
+  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=py%2Cmysql%2Ckafka%2Cdocker%2Ckubernetes%2Cgrafana%2Cprometheus%2Cflask%2Cjs%2Cgit&theme=light" />
   <img src="https://skillicons.dev/icons?i=py,mysql,kafka,docker,kubernetes,grafana,prometheus,flask,js,git&theme=dark" />
 </picture>
 
