@@ -72,4 +72,4 @@ velog   → <a href="https://velog.io/@lcs3947">velog.io/@lcs3947</a>
 mail    → <a href="mailto:lcs3947@naver.com">lcs3947@naver.com</a>
 </pre>
 
-<img src="https://komarev.com/ghpvc/?username=Rukkakka&color=7C3AED&style=flat-square&label=visitors" />
+<img src="https://hits.sh/github.com/Rukkakka.svg?style=flat-square&label=visitors&color=7c3aed" alt="visitors" />
