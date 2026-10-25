@@ -26,8 +26,8 @@ class JungHoo:
         }
 
     def side(self):
-        # 퇴근 후: LLM 에이전트가 셸에서 부르는 조회 CLI
-        return ["jibsa", "baenggipyo"]
+        # 퇴근 후: LLM 에이전트가 셸에서 부르는 CLI
+        return ["jibsa", "baenggipyo", "velogger"]
 ```
 
 <picture>
@@ -39,20 +39,30 @@ class JungHoo:
 
 ### `$ ls ~/projects`
 
-<a href="https://github.com/Rukkakka/jibsa"><img src="assets/card-jibsa.svg" width="49%" alt="jibsa · 집사" /></a>&nbsp;<a href="https://github.com/Rukkakka/baenggipyo"><img src="assets/card-baenggipyo.svg" width="49%" alt="baenggipyo · 뱅기표" /></a>
+<a href="https://github.com/Rukkakka/jibsa"><img src="assets/card-jibsa.svg" width="32%" alt="jibsa · 집사" /></a>&nbsp;<a href="https://github.com/Rukkakka/baenggipyo"><img src="assets/card-baenggipyo.svg" width="32%" alt="baenggipyo · 뱅기표" /></a>&nbsp;<a href="https://github.com/Rukkakka/velogger"><img src="assets/card-velogger.svg" width="32%" alt="velogger · 벨로거" /></a>
 
 <pre>
-# jibsa 와 baenggipyo 는 LLM 에이전트가 쓰라고 만든 CLI 입니다
-#  - 웹 검색에 걸린 지난 정보 말고, 지금 거래 가능한 것만 가져옵니다
-#  - 로그인 없이 볼 수 있는 정보만 쓰고, 사이트별 요청 제한을 지킵니다
-#  - 결과는 공통 JSON 으로 돌려주고, 예약·문의는 결과의 url 로 넘깁니다
+# 셋 다 LLM 에이전트가 셸에서 부르라고 만든 CLI 입니다 (같은 구조의 형제 프로젝트)
+#  - 결과는 공통 JSON 으로 돌려주고, 원 사이트 url 과 조회 범위를 알리는 notes 를 붙입니다
+#  - 사이트별 요청 제한을 지키고, 그 상태를 모든 프로세스가 함께 씁니다
+#  - 집사·뱅기표는 로그인 없이, 웹 검색에 걸린 지난 정보 말고 지금 거래 가능한 것만 가져옵니다
+#  - 벨로거는 조회는 로그인 없이, 글쓰기·반응은 내 계정으로 합니다 (발행은 기본이 임시저장)
+#  - PyPI 에 있습니다: uv tool install jibsa | baenggipyo | velogger
+#  - 쓰는 모습(데모)은 각 저장소 README 에 있습니다
 </pre>
 
-<details open>
-<summary><code>$ claude</code> &nbsp;# Claude Code 가 집사로 집을 찾는 모습 (예시 화면)</summary>
-<br/>
-<img src="assets/jibsa-demo.gif" width="90%" />
-</details>
+### `$ velogger posts lcs3947 --limit 5`
+
+<!-- posts:start -->
+<pre>
+# 직접 만든 velogger 로 6시간마다 가져옵니다
+2026-10-23  <a href="https://velog.io/@lcs3947/why-cli-not-mcp-jibsa">이사 가려다 CLI를 만들었다: MCP 대신 CLI를 고른 이유</a>
+2026-10-22  <a href="https://velog.io/@lcs3947/ai-development-system-jibsa">AI한테 일 시키기 전에 체계부터 잡았다: 규칙·이슈·CI·리뷰</a>
+2026-10-22  <a href="https://velog.io/@lcs3947/unofficial-api-daily-monitor-jibsa">비공식 API는 예고 없이 죽는다: 새벽 4시 17분의 점호</a>
+2026-10-22  <a href="https://velog.io/@lcs3947/error-hints-for-ai-agents-jibsa">틀렸다고만 하면 AI는 또 틀린다: 에러에 정답을 적어 주는 이유</a>
+2026-10-22  <a href="https://velog.io/@lcs3947/same-dong-name-three-sites-jibsa">신사동 찾았더니 강남이 은평이 됐다: AI가 엉뚱한 동네 집을 비교하던 이유</a>
+</pre>
+<!-- posts:end -->
 
 <br/>
 

@@ -1,6 +1,7 @@
-# 집사·뱅기표의 최신 GitHub Release 를 읽어 README 의 히어로 배너와 프로젝트 카드 SVG 를 다시 그린다.
+# 집사·뱅기표·벨로거의 최신 GitHub Release 를 읽어 README 의 히어로 배너와 프로젝트 카드 SVG 를 다시 그리고,
+# velogger 로 velog 최근 글을 받아 README 목록을 고친다.
 # 바뀐 게 있을 때만 커밋한다. 바로 반영하고 싶으면 Actions 탭에서 "Run workflow" 를 누른다.
-name: README SVG 갱신
+name: README 갱신
 
 on:
   schedule:
@@ -10,6 +11,7 @@ on:
     branches: [main]
     paths:
       - scripts/render_svgs.py
+      - scripts/render_posts.py
       - .github/workflows/readme-svgs.yml
 
 permissions:
@@ -30,14 +32,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 바뀐 SVG 커밋
+      # velog 가 막혀도 SVG 갱신은 커밋되도록 실패를 넘긴다 (README 는 그대로 남는다)
+      - name: velog 최근 글 받기
+        continue-on-error: true
+        shell: bash
+        run: pipx run velogger posts lcs3947 --limit 5 | python3 scripts/render_posts.py README.md
+
+      - name: 바뀐 README 커밋
         run: |
-          if git diff --quiet -- assets; then
+          if git diff --quiet -- assets README.md; then
             echo "변경 없음"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/*.svg
-          git commit -m "README 프로젝트 버전 갱신"
+          git add assets/*.svg README.md
+          git commit -m "README 프로젝트 버전·최근 글 갱신"
           git push

@@ -16,12 +16,15 @@ from pathlib import Path
 
 OWNER = "Rukkakka"
 
-# (저장소, 한글 이름, 카드 설명 두 줄, 히어로 주석, 태그)
+# (저장소, 한글 이름, 카드 설명 두 줄, 히어로 주석)
+# 카드는 README 에 세 장씩 한 줄로 놓이므로 설명은 한 줄에 한글 15자 안팎으로 쓴다.
 PROJECTS = [
-    ("jibsa", "집사", ("직방·네이버·당근 부동산 매물 조회 CLI", "지금 거래 가능한 매물만, 만원 단위 JSON"),
-     "# 집사 · 부동산 매물 조회", "python · typer · httpx"),
-    ("baenggipyo", "뱅기표", ("네이버 항공권·스카이스캐너 항공권 조회 CLI", "지금 살 수 있는 운임만, 원 단위 JSON"),
-     "# 뱅기표 · 항공권 조회", "python · typer · httpx"),
+    ("jibsa", "집사", ("직방·네이버·당근 매물·실거래가", "거래 가능한 매물만 · 만원 단위"),
+     "# 집사 · 부동산 매물·실거래가"),
+    ("baenggipyo", "뱅기표", ("네이버·스카이스캐너 항공권·최저가", "살 수 있는 운임만 · 원 단위"),
+     "# 뱅기표 · 항공권·날짜별 최저가"),
+    ("velogger", "벨로거", ("velog 조회·발행·댓글·좋아요", "읽기는 로그인 없이 · 쓰기는 내 계정"),
+     "# 벨로거 · velog 조회·글쓰기"),
 ]
 
 # Catppuccin Mocha
@@ -62,19 +65,18 @@ def latest_release(repo):
     return tag if tag.startswith("v") else f"v{tag}"
 
 
-def window(w, h, title):
-    """둥근 터미널 창 바탕과 신호등 버튼이 있는 제목 표시줄."""
+def window(w, h, title, title_x=None):
+    """둥근 터미널 창 바탕과 신호등 버튼이 있는 제목 표시줄. 좁은 창은 title_x 로 제목을 신호등 오른쪽에 둔다."""
     return f"""
   <rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="12" fill="{BASE}" stroke="{SURFACE}"/>
   <path d="M1 12.5a12 12 0 0 1 12-12h{w - 26}a12 12 0 0 1 12 12V34H1z" fill="{MANTLE}"/>
   <circle cx="22" cy="17.5" r="6" fill="#ff5f57"/>
   <circle cx="42" cy="17.5" r="6" fill="#febc2e"/>
   <circle cx="62" cy="17.5" r="6" fill="#28c840"/>
-  <text x="{w / 2}" y="22" text-anchor="middle" font-size="12" fill="{OVERLAY}">{escape(title)}</text>"""
+  <text x="{title_x or w / 2}" y="22" text-anchor="middle" font-size="12" fill="{OVERLAY}">{escape(title)}</text>"""
 
 
 def hero(releases):
-    w, h = 860, 396
     art = "\n".join(
         f'  <text class="art fade" x="32" y="{78 + i * 17}" style="animation-delay:{i * 0.06:.2f}s">{escape(line)}</text>'
         for i, line in enumerate(ART)
@@ -84,13 +86,15 @@ def hero(releases):
         ("OK", "Started data-pipeline.service", "# Airflow · 대규모 배치 · 장애 복구"),
         ("OK", "Started automation.service", "# UiPath RPA → Python"),
     ]
-    for repo, _, _, comment, _ in PROJECTS:
+    for repo, _, _, comment in PROJECTS:
         version = releases[repo]
         if version:
             boot.append(("OK", f"Loaded {repo}.cli {version}", comment))
         else:
             boot.append(("WAIT", f"Building {repo}.cli", comment))
     boot.append(("OK", "Reached target llm-agent-tools.", ""))
+    # 부팅 줄이 늘면 아래 프롬프트가 잘리지 않게 창을 늘린다
+    w, h = 860, 246 + len(boot) * 24 + 30
 
     lines = []
     for i, (state, msg, comment) in enumerate(boot):
@@ -136,8 +140,9 @@ def hero(releases):
 """
 
 
-def card(name, kr, desc, version, tags):
-    w, h = 420, 196
+def card(name, kr, desc, version):
+    """README 에 세 장씩 한 줄(각 32%)로 놓이는 프로젝트 카드. 표시 폭이 280px 안팎이라 거의 원래 크기로 보인다."""
+    w, h = 280, 186
     released = version is not None
     label = version if released else "in progress"
     color = GREEN if released else YELLOW
@@ -156,15 +161,14 @@ def card(name, kr, desc, version, tags):
       @keyframes pulse {{ 50% {{ opacity: .25; }} }}
     </style>
   </defs>
-{window(w, h, f"~/projects/{name}")}
-  <text x="24" y="80" font-size="28" font-weight="700" fill="url(#g)">{escape(name)}<tspan dx="12" font-size="17" font-weight="400" fill="{SUBTEXT}">{escape(kr)}</tspan></text>
-  <text x="24" y="114" font-size="14" fill="{TEXT}">{escape(desc[0])}</text>
-  <text x="24" y="136" font-size="14" fill="{OVERLAY}">{escape(desc[1])}</text>
-  <rect x="24" y="157" width="{pill_w}" height="22" rx="11" fill="{color}" fill-opacity=".14" stroke="{color}" stroke-opacity=".5"/>
-  <circle{pulse} cx="36" cy="168" r="3.5" fill="{color}"/>
-  <text x="45" y="172.5" font-size="12" fill="{color}">{escape(label)}</text>
-  <text x="{24 + pill_w + 12}" y="172.5" font-size="12" fill="{OVERLAY}">{escape(tags)}</text>
-  <text x="{w - 24}" y="172.5" text-anchor="end" font-size="13" fill="{MAUVE}">open →</text>
+{window(w, h, f"~/projects/{name}", title_x=(w + 56) / 2)}
+  <text x="20" y="74" font-size="24" font-weight="700" fill="url(#g)">{escape(name)}<tspan dx="10" font-size="15" font-weight="400" fill="{SUBTEXT}">{escape(kr)}</tspan></text>
+  <text x="20" y="106" font-size="13" fill="{TEXT}">{escape(desc[0])}</text>
+  <text x="20" y="127" font-size="13" fill="{OVERLAY}">{escape(desc[1])}</text>
+  <rect x="20" y="147" width="{pill_w}" height="22" rx="11" fill="{color}" fill-opacity=".14" stroke="{color}" stroke-opacity=".5"/>
+  <circle{pulse} cx="32" cy="158" r="3.5" fill="{color}"/>
+  <text x="41" y="162.5" font-size="12" fill="{color}">{escape(label)}</text>
+  <text x="{w - 20}" y="162.5" text-anchor="end" font-size="13" fill="{MAUVE}">open →</text>
 </svg>
 """
 
@@ -172,8 +176,8 @@ def card(name, kr, desc, version, tags):
 def render(out, releases):
     out.mkdir(parents=True, exist_ok=True)
     (out / "hero.svg").write_text(hero(releases))
-    for repo, kr, desc, _, tags in PROJECTS:
-        (out / f"card-{repo}.svg").write_text(card(repo, kr, desc, releases[repo], tags))
+    for repo, kr, desc, _ in PROJECTS:
+        (out / f"card-{repo}.svg").write_text(card(repo, kr, desc, releases[repo]))
 
 
 def main():

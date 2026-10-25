@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="396" viewBox="0 0 860 396" role="img" aria-label="JUNGHOO — Data Engineer · Automation · LLM Tooling">
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="420" viewBox="0 0 860 420" role="img" aria-label="JUNGHOO — Data Engineer · Automation · LLM Tooling">
   <defs>
     <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="32" y1="0" x2="610" y2="0" spreadMethod="reflect">
       <stop offset="0" stop-color="#89b4fa"/>
@@ -16,7 +16,7 @@
     </style>
   </defs>
 
-  <rect x="0.5" y="0.5" width="859" height="395" rx="12" fill="#1e1e2e" stroke="#313244"/>
+  <rect x="0.5" y="0.5" width="859" height="419" rx="12" fill="#1e1e2e" stroke="#313244"/>
   <path d="M1 12.5a12 12 0 0 1 12-12h834a12 12 0 0 1 12 12V34H1z" fill="#181825"/>
   <circle cx="22" cy="17.5" r="6" fill="#ff5f57"/>
   <circle cx="42" cy="17.5" r="6" fill="#febc2e"/>
@@ -32,11 +32,12 @@
   <line x1="32" y1="222" x2="828" y2="222" stroke="#313244"/>
   <text class="fade" x="32" y="246" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:0.90s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Started data-pipeline.service<tspan x="420" fill="#6c7086"># Airflow · 대규모 배치 · 장애 복구</tspan></text>
   <text class="fade" x="32" y="270" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:1.25s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Started automation.service<tspan x="420" fill="#6c7086"># UiPath RPA → Python</tspan></text>
-  <text class="fade" x="32" y="294" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:1.60s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Loaded jibsa.cli v0.6.0<tspan x="420" fill="#6c7086"># 집사 · 부동산 매물 조회</tspan></text>
-  <text class="fade" x="32" y="318" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:1.95s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Loaded baenggipyo.cli v0.5.0<tspan x="420" fill="#6c7086"># 뱅기표 · 항공권 조회</tspan></text>
-  <text class="fade" x="32" y="342" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:2.30s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Reached target llm-agent-tools.</text>
-  <g class="fade" style="animation-delay:2.85s">
-    <text x="32" y="376" font-size="14" xml:space="preserve"><tspan fill="#a6e3a1">rukkakka@github</tspan><tspan fill="#cdd6f4">:</tspan><tspan fill="#89b4fa">~</tspan><tspan fill="#cdd6f4">$ </tspan></text>
-    <rect class="cursor" x="191.6" y="362" width="8.5" height="17" fill="#cdd6f4"/>
+  <text class="fade" x="32" y="294" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:1.60s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Loaded jibsa.cli v0.6.0<tspan x="420" fill="#6c7086"># 집사 · 부동산 매물·실거래가</tspan></text>
+  <text class="fade" x="32" y="318" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:1.95s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Loaded baenggipyo.cli v0.5.0<tspan x="420" fill="#6c7086"># 뱅기표 · 항공권·날짜별 최저가</tspan></text>
+  <text class="fade" x="32" y="342" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:2.30s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Loaded velogger.cli v0.3.0<tspan x="420" fill="#6c7086"># 벨로거 · velog 조회·글쓰기</tspan></text>
+  <text class="fade" x="32" y="366" font-size="14" fill="#cdd6f4" xml:space="preserve" style="animation-delay:2.65s"><tspan fill="#6c7086">[</tspan><tspan fill="#a6e3a1">  OK  </tspan><tspan fill="#6c7086">]</tspan> Reached target llm-agent-tools.</text>
+  <g class="fade" style="animation-delay:3.20s">
+    <text x="32" y="400" font-size="14" xml:space="preserve"><tspan fill="#a6e3a1">rukkakka@github</tspan><tspan fill="#cdd6f4">:</tspan><tspan fill="#89b4fa">~</tspan><tspan fill="#cdd6f4">$ </tspan></text>
+    <rect class="cursor" x="191.6" y="386" width="8.5" height="17" fill="#cdd6f4"/>
   </g>
 </svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="186" viewBox="0 0 280 186" role="img" aria-label="velogger (벨로거) — velog 조회·발행·댓글·좋아요">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#89b4fa"/>
+      <stop offset="0.55" stop-color="#cba6f7"/>
+      <stop offset="1" stop-color="#f38ba8"/>
+    </linearGradient>
+    <style>
+      text { font-family:'JetBrains Mono','SFMono-Regular',Menlo,Consolas,'DejaVu Sans Mono','Apple SD Gothic Neo','Malgun Gothic','Noto Sans CJK KR',monospace }
+      .pulse { animation: pulse 1.6s ease-in-out infinite; }
+      @keyframes pulse { 50% { opacity: .25; } }
+    </style>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="279" height="185" rx="12" fill="#1e1e2e" stroke="#313244"/>
+  <path d="M1 12.5a12 12 0 0 1 12-12h254a12 12 0 0 1 12 12V34H1z" fill="#181825"/>
+  <circle cx="22" cy="17.5" r="6" fill="#ff5f57"/>
+  <circle cx="42" cy="17.5" r="6" fill="#febc2e"/>
+  <circle cx="62" cy="17.5" r="6" fill="#28c840"/>
+  <text x="168.0" y="22" text-anchor="middle" font-size="12" fill="#6c7086">~/projects/velogger</text>
+  <text x="20" y="74" font-size="24" font-weight="700" fill="url(#g)">velogger<tspan dx="10" font-size="15" font-weight="400" fill="#a6adc8">벨로거</tspan></text>
+  <text x="20" y="106" font-size="13" fill="#cdd6f4">velog 조회·발행·댓글·좋아요</text>
+  <text x="20" y="127" font-size="13" fill="#6c7086">읽기는 로그인 없이 · 쓰기는 내 계정</text>
+  <rect x="20" y="147" width="67.6" height="22" rx="11" fill="#a6e3a1" fill-opacity=".14" stroke="#a6e3a1" stroke-opacity=".5"/>
+  <circle cx="32" cy="158" r="3.5" fill="#a6e3a1"/>
+  <text x="41" y="162.5" font-size="12" fill="#a6e3a1">v0.3.0</text>
+  <text x="260" y="162.5" text-anchor="end" font-size="13" fill="#cba6f7">open →</text>
+</svg>
